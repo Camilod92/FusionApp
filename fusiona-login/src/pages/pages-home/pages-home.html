@@ -1,0 +1,42 @@
+<!--
+  Generated template for the PagesHomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Datos del Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div style="text-align: -webkit-center; text-align: center;">
+    <img src="../../assets/imgs/user.png" style="max-width: 80%;" />
+  </div>
+  <ion-list
+    style="margin: 20px 0 16px; border: solid 1px; box-shadow: 5px 5px #888888;"
+  >
+    <ion-item>
+      <h4 class="letra">Nombre</h4>
+      <p class="letra">{{details?.first_name}} {{details?.last_name}}</p>
+    </ion-item>
+    <ion-item>
+      <h4 class="letra">Correo Electrónico</h4>
+      <p class="letra">{{details?.email}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-card style="margin-top: 10%;">
+    <ion-item style="background: #3e5f8a;">
+      <h3 style="color: aliceblue;">
+        Usuarios Registrados: <strong>{{this.api.data$ | async }}</strong>
+      </h3>
+    </ion-item>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,96 @@
+<div class="splash" *ngIf="loading">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>
+
+<body *ngIf="!loading">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <button ion-button icon-only (click)="back()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title style="text-align: center;">FusionApp</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <h2>Crea tu cuenta !!!</h2>
+    <div class="container">
+      <form [formGroup]="registerGroup">
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+          <div *ngIf="name.hasError('required') && name.touched">
+            <p>*Este campo es requerido para registrarse</p>
+          </div>
+          <div *ngIf="name.errors?.minlength">
+            <p>*Minimo 3 caracteres</p>
+          </div>
+
+          <ion-item>
+            <ion-label floating>Apellido</ion-label>
+            <ion-input formControlName="last_name" type="text"></ion-input>
+          </ion-item>
+          <div *ngIf="last_name.hasError('required') && last_name.touched">
+            <p>*Este campo es requerido para registrarse</p>
+          </div>
+          <div *ngIf="last_name.errors?.minlength">
+            <p>*Minimo 3 caracteres</p>
+          </div>
+          <ion-item>
+            <ion-label floating>Correo Electrónico</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+          <div *ngIf="email.hasError('required') && email.touched">
+            <p>*Este campo es requerido para registrarse</p>
+          </div>
+          <div
+            *ngIf="email.errors?.email && email.touched && !email.hasError('required')"
+          >
+            <p>*Debe ser un correo valido</p>
+          </div>
+          <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <div *ngIf="password.hasError('required') && password.touched">
+            <p>*Este campo es requerido para registrarse</p>
+          </div>
+          <div *ngIf="password.errors?.minlength">
+            <p>*Minimo 6 caracteres</p>
+          </div>
+          <ion-item>
+            <ion-label floating>Confirmar Contraseña</ion-label>
+            <ion-input formControlName="repass" type="password"></ion-input>
+          </ion-item>
+          <div *ngIf="repass.hasError('required') && repass.touched">
+            <p>*Este campo es requerido para registrarse</p>
+          </div>
+          <div
+            *ngIf="registerGroup.controls.repass.invalid && registerGroup.touched  && !repass.hasError('required')"
+          >
+            <p>*Las contraseñas no coinciden</p>
+          </div>
+        </ion-list>
+      </form>
+      <div padding>
+        <button
+          ion-button
+          primary
+          block
+          (click)="register()"
+          [disabled]="!registerGroup.valid"
+        >
+          Registrar
+        </button>
+      </div>
+    </div>
+  </ion-content>
+</body>

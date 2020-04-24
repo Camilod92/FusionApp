@@ -1,0 +1,7 @@
+{
+  "name": "fusiona-login",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

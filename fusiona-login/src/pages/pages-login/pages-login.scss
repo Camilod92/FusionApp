@@ -1,0 +1,61 @@
+page-pages-login {
+  .letra {
+    font-size: 2.4rem !important;
+  }
+
+  .container {
+    margin-top: 20%;
+  }
+  .imageContainer {
+    text-align: -webkit-center;
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .item-md {
+    padding-left: 0px !important;
+    border-left: 0px !important;
+    border-top: 0px !important;
+    border-right: 0px !important;
+  }
+  .item-ios {
+    padding-left: 0px !important;
+    border-left: 0px !important;
+    border-top: 0px !important;
+    border-right: 0px !important;
+  }
+
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus)
+    .item-inner {
+    box-shadow: inset 0px 0px 0px 0px #f53d3d !important;
+  }
+
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus)
+    .item-inner,
+  .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus)
+    .item-inner {
+    box-shadow: inset 0px 0px 0px 0px #32db64 !important;
+  }
+
+  .item-md.item-input.item-input-has-focus.item-inner,
+  .item-md.item-input.item-input-has-focus.item-inner {
+    box-shadow: inset 0px 0px 0px 0px #488aff !important;
+  }
+
+  @media (max-width: 360px) {
+    .container {
+      margin-top: 10%;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .container {
+      margin-top: 0%;
+    }
+
+    .imageContainer {
+      text-align: -webkit-center;
+      margin-top: 10%;
+    }
+  }
+}
